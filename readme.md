@@ -7,7 +7,7 @@ Tic Tac Toe console application using C++.
 The working is pretty simple. Once the game is running, each player can get a nickname, and when playing,
 they can type a valid position, chosing from one through nine each time. The game will automatically switch turns.
 
-#Execution
+# Execution
 This game was developed in a Linux OS, for those who would like to give it a try in the same system, the compilation 
 process can be done by following the next steps.
 
@@ -24,5 +24,6 @@ the executable file and give it a name, and finally the cpp source code file.
 
 ## Run
 ./executableName
+
 Now you can execute the program and give it a try.
 
