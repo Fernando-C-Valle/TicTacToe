@@ -11,18 +11,18 @@ they can type a valid position, chosing from one through nine each time. The gam
 This game was developed in a Linux OS, for those who would like to give it a try in the same system, the compilation 
 process can be done by following the next steps.
 
-### Install build essential
+## Install build essential
 sudo apt-get install build-essential -y
 
 This will install the required packages for the program to work, like the compilers g++ and gcc.
 
-###Compile the code
+## Compile the code
 g++ -Wall -o executableName ticTacToe.cpp
 
 In order to compile the code, type this command. I used the g++ compiler, the -Wall warning options, -o to create 
 the executable file and give it a name, and finally the cpp source code file.
 
-### Run
+## Run
 ./executableName
 Now you can execute the program and give it a try.
 
