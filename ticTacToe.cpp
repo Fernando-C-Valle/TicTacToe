@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <limits>
+#include <iomanip>
 
 void showOptions(){
 	std::cout << "The players must choose one of these positions, from 1 through 9" << std::endl;
@@ -97,6 +98,9 @@ int main(){
 	bool winner = false;
 	std::string symbol {"O"};
 	std::string input {};
+	std::string name1 {};
+	std::string name2 {};
+	std::string switchNames {};
 	std::vector< int > positions(9,0);//Filled with nine 0's
 	std::vector< std::string > grid (9, " ");	
 	std::vector< std::string > positionsO (9," ");
@@ -105,9 +109,18 @@ int main(){
 	showOptions();
 	
 	//Game starts
+	std::string s{"GAME STARTS"};
+	std::cout << std::setw(10) << std::setfill('-') << "" << s << std::setw(10) << std::setfill('-') << "" << std::endl;
+	std::cout << std::setfill('*') << std::endl;
+	std::cout << "Player 1, please type your name: " << std::endl;
+	std::cin >> name1;
+	std::cout << "Player 2, please type your name: " << std::endl;
+	std::cin >> name2;	
+	switchNames = name1;
+	
 	while(flag != false){		
 		do{
-			std::cout << "Player " << symbol << ", type a valid position: " << std::endl;
+			std::cout << "Symbol: " << symbol << ", " << switchNames << ", type a valid position: " << std::endl;
 			std::cin >> input;
 			std::istringstream correctInput {input};//input string stream object for validation
 			//If the input is correct
@@ -135,14 +148,14 @@ int main(){
 		if(count > 5){
 			if(count % 2 == 0){//Check O
 				if(checkWin(positionsO, "O") == true){
-					std::cout << " ----- O wins ----- " << std::endl;
+					std::cout << " ----- " << name1 << " wins ----- " << std::endl;
 					flag = false;
 					winner = true;
 				}
 			}
 			else {//Check X
 				if(checkWin(positionsX, "X") == true){					
-					std::cout << " ----- X wins ----- " << std::endl;
+					std::cout << " ----- " << name2 << " wins ----- " << std::endl;
 					flag = false;
 					winner = true;
 				}
@@ -154,9 +167,11 @@ int main(){
 		//Switch player
 		if(count % 2 == 0){
 			symbol = "X";
+			switchNames = name2;
 		} 
 		else {
 			symbol = "O";
+			switchNames = name1;
 		}
 		
 		//Check for draw
